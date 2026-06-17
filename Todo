@@ -1,1 +1,10 @@
- 
+Creation de la base de donnees : 
+Produit : idProduit, libelle, prix_unitaire, quantite en stock
+Caisse : idCaisse, libelle
+Achat : idAchat, CaisseId
+DetailAchat : idDetailAchat, achatId, produitId, quantite
+
+
+Inserer 5 produits et 2 caisse :
+Initialiser CodeIgniter :
+Creer le template a partir du fichier fournie : 
