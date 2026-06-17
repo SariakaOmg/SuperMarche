@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use CodeIgniter\Database\BaseConnection;
 use App\Models\AchatModel;
 use App\Models\DetailAchatModel;
 use App\Models\ProduitModel;
@@ -20,70 +19,109 @@ class AchatController extends BaseController
 
     public function __construct()
     {
-        $this->achatModel = new AchatModel();
+        $this->achatModel       = new AchatModel();
         $this->detailAchatModel = new DetailAchatModel();
-        $this->produitModel = new ProduitModel();
-        $this->caisseModel = new CaisseModel();
-        $this->achatService = new AchatService();
+        $this->produitModel     = new ProduitModel();
+        $this->caisseModel      = new CaisseModel();
+        $this->achatService     = new AchatService();
     }
 
     public function index()
     {
-        // $caisseId = session()->get('caisse_id');
+        $caisse = session()->get('caisse');
+
+        if (!$caisse) {
+            return redirect()->to('/')->with('error', 'Veuillez choisir une caisse.');
+        }
+
         return view('saisie_achat', [
             'produits' => $this->achatService->listeProduits(),
-            'caisse' => $this->achatService->getCaisseById(1)
+            'caisse'   => $caisse,
         ]);
     }
 
     public function verifyIfCanBuy()
     {
-        $produitId = $this->request->getPost('produit_id');
-        $quantite = $this->request->getPost('quantite');
+        $produitId = (int) $this->request->getPost('produit_id');
+        $quantite  = (int) $this->request->getPost('quantite');
 
-        $produit = $this->achatService->getProduitById($produitId);
+        try {
+            $this->achatService->verifyIfCanBuy($produitId, $quantite);
+            $produit = $this->achatService->getProduitById($produitId);
 
-
-        if ($this->achatService->verifyIfCanBuy($produitId, $quantite)) {
             return $this->response->setJSON([
                 'success' => true,
                 'message' => 'Stock suffisant',
-                'stock'   => $produit['quantite_stock']
+                'stock'   => $produit['quantite_stock'],
+            ]);
+        } catch (\Exception $e) {
+            $produit = $this->achatService->getProduitById($produitId);
+
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => $e->getMessage(),
+                'stock'   => $produit ? $produit['quantite_stock'] : 0,
             ]);
         }
-
-        return $this->response->setJSON([
-            'success' => false,
-            'message' => 'Stock insuffisant',
-            'stock'   => $produit['quantite_stock']
-        ]);
     }
 
     public function createAchat()
     {
-        $caisseId = $this->request->getPost('caisse_id');
-        $produits = $this->request->getPost('produits'); // Attendu comme un tableau de {produit_id, quantite}
+        $json     = $this->request->getJSON(true);
+        $caisseId = (int) ($json['caisse_id'] ?? 0);
+        $produits = $json['produits'] ?? [];
 
-        // Vérifier la caisse
-        $caisse = $this->achatService->getCaisseById($caisseId);
-        if (!$caisse) {
-             return $this->response->setJSON([
-                'success' => false,
-                'message' => 'Caisse non trouvée.'
-            ]);
-        }
-
-        if (!$produits || !is_array($produits) || count($produits) === 0) {
+        if (!$caisseId) {
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'Aucun produit sélectionné.'
+                'message' => 'Caisse non spécifiée.',
             ]);
         }
 
-        $this->achatService->effectuerAchat($caisseId, $produits);
+        if (empty($produits)) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Aucun produit sélectionné.',
+            ]);
+        }
 
-        return view('choix_caisse');
+        try {
+            $achatId = $this->achatService->effectuerAchat($caisseId, $produits);
+
+            return $this->response->setJSON([
+                'success'  => true,
+                'message'  => 'Achat enregistré avec succès.',
+                'achat_id' => $achatId,
+            ]);
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
 
-        
+    public function cloturer()
+    {
+        $caisse   = session()->get('caisse');
+        $caisseId = $caisse ? (int) $caisse['id'] : (int) $this->request->getPost('caisse_id');
+
+        $produitsRaw = $this->request->getPost('produits');
+
+        if (!$caisseId) {
+            return redirect()->to('/')->with('error', 'Caisse non trouvée.');
+        }
+
+        if (empty($produitsRaw) || !is_array($produitsRaw)) {
+            return redirect()->to('/achat')->with('error', 'Aucun produit à clôturer.');
+        }
+
+        try {
+            $this->achatService->effectuerAchat($caisseId, $produitsRaw);
+
+            return redirect()->to('/achat')->with('success', 'Achat clôturé avec succès !');
+        } catch (\Exception $e) {
+            return redirect()->to('/achat')->with('error', $e->getMessage());
+        }
+    }
 }
