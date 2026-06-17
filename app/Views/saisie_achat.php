@@ -351,10 +351,7 @@
       SuperMarché
     </div>
     <div class="topbar-right">
-      <!-- En CI : <?= session()->get('caisse_nom') ?> -->
-      <span class="caisse-badge">🖥️ Caisse 01</span>
-      <span class="topbar-user">👤 caissier01</span>
-      <!-- En CI : href="<?= base_url('auth/logout') ?>" -->
+      <span class="caisse-badge"><?= session()->get('caisse')['libelle'] ?></span>
       <a href="#" class="logout-btn">Déconnexion</a>
     </div>
   </header>
