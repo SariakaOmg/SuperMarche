@@ -249,28 +249,29 @@
         <p>Sélectionnez la caisse que vous allez utiliser pour cette session.</p>
       </div>
 
-      <!-- En CodeIgniter : action="<?= base_url('caisse/choisir') ?>" method="POST" -->
-      <form id="caisseForm" action="#" method="POST">
+      <form id="caisseForm" action="/saisieAchat" method="POST">
         <!-- <?= csrf_field() ?> -->
 
         <div class="caisses-grid" id="caissesGrid">
-          <!-- En CI, ces cartes seraient générées par foreach($caisses as $c) -->
+  
+  <?php if (!empty($caisses) && is_array($caisses)): ?>
+    <?php foreach ($caisses as $c): ?>
+      <label class="caisse-option" data-id="<?= esc($c['id']) ?>">
+        <input type="radio" name="caisse_id" value="<?= esc($c['id']) ?>" />
+        
+        <div class="caisse-number"><?= sprintf("%02d", $c['id']) ?></div>
+        <div class="caisse-label"><?= esc($c['libelle']) ?></div>
+        
+        <span class="caisse-status status-libre">Libre</span>
+      </label>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <p style="grid-column: span 2; text-align: center; color: var(--muted-foreground);">
+      Aucune caisse disponible.
+    </p>
+  <?php endif; ?>
 
-          <label class="caisse-option" data-id="1">
-            <input type="radio" name="caisse_id" value="1" />
-            <div class="caisse-number">01</div>
-            <div class="caisse-label">Caisse 1</div>
-            <span class="caisse-status status-libre">Libre</span>
-          </label>
-
-          <label class="caisse-option" data-id="2">
-            <input type="radio" name="caisse_id" value="2" />
-            <div class="caisse-number">02</div>
-            <div class="caisse-label">Caisse 2</div>
-            <span class="caisse-status status-libre">Libre</span>
-          </label>
-        </div>
-
+</div>
         <span class="error-msg" id="errCaisse">Veuillez sélectionner une caisse.</span>
 
         <button type="submit" class="btn">Ouvrir la caisse</button>
@@ -294,17 +295,20 @@
     const errCaisse = document.getElementById('errCaisse');
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      errCaisse.classList.remove('visible');
-
-      const selected = document.querySelector('input[name="caisse_id"]:checked');
-      if (!selected) {
-        errCaisse.classList.add('visible');
-        return;
-      }
-
-      // En CodeIgniter, retirer e.preventDefault() et laisser le POST se faire
-      alert('Caisse ' + selected.value + ' sélectionnée → redirection vers saisie_achat');
+      // 1. On empêche temporairement pour faire la vérification
+        e.preventDefault();
+        errCaisse.classList.remove('visible');
+        
+        const selected = document.querySelector('input[name="caisse_id"]:checked');
+        
+        // 2. Si rien n'est sélectionné, on affiche l'erreur et on arrête tout
+        if (!selected) {
+          errCaisse.classList.add('visible');
+          return;
+        }
+        
+        // 3. SI TOUT EST OK : On force la soumission du formulaire vers PHP !
+        form.submit();
     });
   </script>
 </body>

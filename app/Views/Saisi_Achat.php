@@ -300,7 +300,7 @@
     </div>
     <div class="topbar-right">
       <!-- En CI : <?= session()->get('caisse_nom') ?> -->
-      <span class="caisse-badge">🖥️ Caisse 01</span>
+      <span class="caisse-badge">🖥️ <?= esc(session()->get('caisse_choisie')) ?></span>
       <span class="topbar-user">👤 caissier01</span>
       <!-- En CI : href="<?= base_url('auth/logout') ?>" -->
       <a href="#" class="logout-btn">Déconnexion</a>
@@ -406,7 +406,7 @@
           <div class="info-row">
             <span class="lbl">Caisse</span>
             <!-- En CI : <?= session()->get('caisse_nom') ?> -->
-            <span class="val">Caisse 01</span>
+                  <span class="caisse-badge">🖥️ <?= esc(session()->get('caisse_choisie')) ?></span>
           </div>
           <div class="info-row">
             <span class="lbl">Caissier</span>
