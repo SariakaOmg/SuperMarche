@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion – Supermarché</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --background: #ffffff;
+      --foreground: #030213;
+      --primary: #030213;
+      --primary-foreground: #ffffff;
+      --secondary: #f0f0f5;
+      --muted: #ececf0;
+      --muted-foreground: #717182;
+      --accent: #e9ebef;
+      --border: rgba(0,0,0,0.1);
+      --input-background: #f3f3f5;
+      --destructive: #d4183d;
+      --radius: 0.625rem;
+      --font-size: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: var(--font-size);
+      background: var(--background);
+      color: var(--foreground);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f5f5fa 0%, #e9ebef 100%);
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg { color: #fff; }
+
+    .logo h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--muted-foreground);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--muted-foreground);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-group { margin-bottom: 1.25rem; }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.6rem 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--input-background);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(3,2,19,0.08);
+    }
+
+    .error-msg {
+      color: var(--destructive);
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .error-msg.visible { display: block; }
+
+    .btn {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      margin-top: 0.5rem;
+    }
+
+    .btn:hover { opacity: 0.85; }
+    .btn:active { opacity: 0.75; }
+
+    .alert-error {
+      background: #fff0f3;
+      border: 1px solid #fac5d0;
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      color: var(--destructive);
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+      display: none;
+    }
+
+    .alert-error.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </div>
+      <div>
+        <h1>SuperMarché<span>Système de caisse</span></h1>
+      </div>
+    </div>
+
+    <h2>Connexion</h2>
+    <p class="subtitle">Entrez vos identifiants pour accéder au système.</p>
+
+    <div class="alert-error" id="alertError">
+      Identifiants incorrects. Veuillez réessayer.
+    </div>
+
+    <!-- En CodeIgniter : action="<?= base_url('auth/login') ?>" method="POST" -->
+    <form id="loginForm" action="#" method="POST" novalidate>
+      <!-- <?= csrf_field() ?> -->
+
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" placeholder="ex : caissier01" autocomplete="username" />
+        <span class="error-msg" id="errUsername">Ce champ est obligatoire.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" />
+        <span class="error-msg" id="errPassword">Ce champ est obligatoire.</span>
+      </div>
+
+      <button type="submit" class="btn">Se connecter</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const errUsername = document.getElementById('errUsername');
+    const errPassword = document.getElementById('errPassword');
+    const alertError = document.getElementById('alertError');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      let valid = true;
+
+      // Reset
+      errUsername.classList.remove('visible');
+      errPassword.classList.remove('visible');
+      alertError.classList.remove('visible');
+
+      if (!usernameInput.value.trim()) {
+        errUsername.classList.add('visible');
+        valid = false;
+      }
+
+      if (!passwordInput.value.trim()) {
+        errPassword.classList.add('visible');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Simulation : en CodeIgniter, le formulaire sera soumis normalement via POST
+      // Ici on simule un échec pour la démo
+      // alertError.classList.add('visible');
+
+      // Pour la vraie soumission CodeIgniter, retirer le e.preventDefault() ci-dessus
+      // et laisser le formulaire se soumettre normalement vers auth/login
+      alert('Formulaire valide — soumission vers auth/login');
+    });
+  </script>
+</body>
+</html>
