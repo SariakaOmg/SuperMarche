@@ -31,8 +31,11 @@ class CaisseController extends BaseController
         }
 
         $session = session();
-        $session->set('caisse_choisie', $caisse['libelle']); 
+        $session->set('caisse', $caisse); 
 
-        return view('Saisi_Achat');
+        return view('saisie_achat', [
+            'produits' => (new \App\Services\AchatService())->listeProduits(),
+            'caisse' => $caisse
+        ]);
     }
 }
