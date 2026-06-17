@@ -1,0 +1,76 @@
+ERROR - 2026-06-17 06:46:54 --> Error connecting to the database: Exception: Unable to open database: unable to open database file in /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php:111
+Stack trace:
+#0 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php(111): SQLite3->__construct('/home/noraa/Fia...')
+#1 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#2 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#4 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#5 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#6 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#7 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#8 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#9 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+#10 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#11 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#12 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#13 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(442): CodeIgniter\CLI\Console->run()
+#14 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php:118
+Stack trace:
+#0 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#5 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+#9 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#10 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#11 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#12 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(442): CodeIgniter\CLI\Console->run()
+#13 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+ERROR - 2026-06-17 06:47:25 --> Error connecting to the database: Exception: Unable to open database: unable to open database file in /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php:111
+Stack trace:
+#0 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php(111): SQLite3->__construct('/home/noraa/Fia...')
+#1 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#2 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#4 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#5 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#6 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#7 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#8 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#9 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+#10 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#11 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#12 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#13 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(442): CodeIgniter\CLI\Console->run()
+#14 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#15 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: SQLite3 error: Unable to open database: unable to open database file in /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php:118
+Stack trace:
+#0 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect(false)
+#1 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(795): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SELECT "NAME" F...')
+#4 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#5 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+#9 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#10 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#11 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#12 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(442): CodeIgniter\CLI\Console->run()
+#13 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
