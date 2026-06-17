@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CaisseModel;
+use App\Services\AchatService;
 
 class CaisseController extends BaseController
 {
@@ -10,32 +11,28 @@ class CaisseController extends BaseController
     {
         $caisseModel = new CaisseModel();
 
-        $data['caisses'] = $caisseModel->getAllCaisse();
-
-        return view('choix_caisse', $data);
+        return view('choix_caisse', [
+            'caisses' => $caisseModel->getAllCaisse(),
+        ]);
     }
 
     public function enregistrerChoix()
     {
-        $caisseId = $this->request->getPost('caisse_id');
+        $caisseId = (int) $this->request->getPost('caisse_id');
 
         if (!$caisseId) {
-            return redirect()->to('/choix')->with('error', 'Veuillez sélectionner une caisse.');
+            return redirect()->to('/')->with('error', 'Veuillez sélectionner une caisse.');
         }
 
         $caisseModel = new CaisseModel();
         $caisse = $caisseModel->getCaisseById($caisseId);
 
         if (!$caisse) {
-            return redirect()->to('/choix')->with('error', 'Caisse introuvable.');
+            return redirect()->to('/')->with('error', 'Caisse introuvable.');
         }
 
-        $session = session();
-        $session->set('caisse', $caisse); 
+        session()->set('caisse', $caisse);
 
-        return view('saisie_achat', [
-            'produits' => (new \App\Services\AchatService())->listeProduits(),
-            'caisse' => $caisse
-        ]);
+        return redirect()->to('/achat');
     }
 }

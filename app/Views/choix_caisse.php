@@ -228,10 +228,6 @@
       SuperMarché
     </div>
     <div class="topbar-user">
-      <!-- En CI : <?= session()->get('username') ?> -->
-      <span>👤 caissier01</span>
-      <!-- En CI : href="<?= base_url('auth/logout') ?>" -->
-      <a href="#" class="logout-btn">Déconnexion</a>
     </div>
   </header>
 
@@ -280,7 +276,6 @@
   </main>
 
   <script>
-    // Gestion visuelle de la sélection
     const options = document.querySelectorAll('.caisse-option');
     options.forEach(function (opt) {
       opt.addEventListener('click', function () {
@@ -290,24 +285,20 @@
       });
     });
 
-    // Validation avant soumission
     const form = document.getElementById('caisseForm');
     const errCaisse = document.getElementById('errCaisse');
 
     form.addEventListener('submit', function (e) {
-      // 1. On empêche temporairement pour faire la vérification
         e.preventDefault();
         errCaisse.classList.remove('visible');
         
         const selected = document.querySelector('input[name="caisse_id"]:checked');
         
-        // 2. Si rien n'est sélectionné, on affiche l'erreur et on arrête tout
         if (!selected) {
           errCaisse.classList.add('visible');
           return;
         }
         
-        // 3. SI TOUT EST OK : On force la soumission du formulaire vers PHP !
         form.submit();
     });
   </script>
