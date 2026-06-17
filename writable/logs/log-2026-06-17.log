@@ -74,3 +74,129 @@ Stack trace:
 #13 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
 #14 /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
 #15 {main}
+CRITICAL - 2026-06-17 07:46:17 --> Error: Class "App\Models\ProduitModel" not found
+[Method: GET, Route: /]
+in APPPATH/Controllers/AchatController.php on line 25.
+ 1 SYSTEMPATH/CodeIgniter.php(921): App\Controllers\AchatController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:46:18 --> Error: Class "App\Models\ProduitModel" not found
+[Method: GET, Route: /]
+in APPPATH/Controllers/AchatController.php on line 25.
+ 1 SYSTEMPATH/CodeIgniter.php(921): App\Controllers\AchatController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:52:53 --> Error: Class "App\Services\CaisseModel" not found
+[Method: GET, Route: /]
+in APPPATH/Services/AchatService.php on line 23.
+ 1 APPPATH/Controllers/AchatController.php(27): App\Services\AchatService->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(921): App\Controllers\AchatController->__construct()
+ 3 SYSTEMPATH/CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:53:09 --> TypeError: App\Services\AchatService::getCaisseById(): Argument #1 ($caisseId) must be of type int, null given, called in /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Controllers/AchatController.php on line 35
+[Method: GET, Route: /]
+in APPPATH/Services/AchatService.php on line 42.
+ 1 APPPATH/Controllers/AchatController.php(35): App\Services\AchatService->getCaisseById(null)
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AchatController))
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:53:10 --> TypeError: App\Services\AchatService::getCaisseById(): Argument #1 ($caisseId) must be of type int, null given, called in /home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Controllers/AchatController.php on line 35
+[Method: GET, Route: /]
+in APPPATH/Services/AchatService.php on line 42.
+ 1 APPPATH/Controllers/AchatController.php(35): App\Services\AchatService->getCaisseById(null)
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AchatController))
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:55:34 --> ErrorException: Undefined variable $produit
+[Method: GET, Route: /]
+in APPPATH/Views/saisie_achat.php on line 335.
+ 1 APPPATH/Views/saisie_achat.php(335): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $produit', '/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Views/saisie_achat.php', 335)
+ 2 SYSTEMPATH/View/View.php(240): include('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Views/saisie_achat.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render('saisie_achat', [], true)
+ 5 APPPATH/Controllers/AchatController.php(33): view('saisie_achat', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AchatController))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:55:39 --> ErrorException: Undefined variable $produit
+[Method: GET, Route: /]
+in APPPATH/Views/saisie_achat.php on line 335.
+ 1 APPPATH/Views/saisie_achat.php(335): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $produit', '/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Views/saisie_achat.php', 335)
+ 2 SYSTEMPATH/View/View.php(240): include('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Views/saisie_achat.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render('saisie_achat', [], true)
+ 5 APPPATH/Controllers/AchatController.php(33): view('saisie_achat', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AchatController))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:55:39 --> ErrorException: Undefined variable $produit
+[Method: GET, Route: /]
+in APPPATH/Views/saisie_achat.php on line 335.
+ 1 APPPATH/Views/saisie_achat.php(335): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $produit', '/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Views/saisie_achat.php', 335)
+ 2 SYSTEMPATH/View/View.php(240): include('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/app/Views/saisie_achat.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render('saisie_achat', [], true)
+ 5 APPPATH/Controllers/AchatController.php(33): view('saisie_achat', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AchatController))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:57:36 --> Error: Call to undefined function e()
+[Method: GET, Route: /]
+in APPPATH/Views/saisie_achat.php on line 335.
+ 1 SYSTEMPATH/View/View.php(240): include()
+ 2 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render('saisie_achat', [], true)
+ 4 APPPATH/Controllers/AchatController.php(33): view('saisie_achat', [...])
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AchatController))
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
+CRITICAL - 2026-06-17 07:58:55 --> Error: Call to undefined function e()
+[Method: GET, Route: /]
+in APPPATH/Views/saisie_achat.php on line 335.
+ 1 SYSTEMPATH/View/View.php(240): include()
+ 2 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render('saisie_achat', [], true)
+ 4 APPPATH/Controllers/AchatController.php(33): view('saisie_achat', [...])
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AchatController))
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/noraa/Fianarana/L2 ITU/BdD Obj/TP Using CodeIgniter 4/Work/SuperMarche/public/index.php')
